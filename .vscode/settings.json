@@ -1,3 +1,7 @@
 {
-    "java.debug.settings.onBuildFailureProceed": true
+    "java.debug.settings.onBuildFailureProceed": true,
+    "gitlens.repositories.autoSearch": false,
+    "gitlens.repositories.include": [
+        "c:/Users/JUAND.PINEDA/Documents/U/Ing Software/TIENDAJJMjava/TiendaJJM"
+    ]
 }
