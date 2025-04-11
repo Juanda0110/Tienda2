@@ -10,4 +10,8 @@ public class Proveedor {
     public String getNombre() {
         return nombre;
     }
+
+    public void operar(String producto) {
+        System.out.println("Proveedor " + nombre + " está gestionando el producto: " + producto);
+    }
 }

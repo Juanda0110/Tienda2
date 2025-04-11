@@ -1,33 +1,41 @@
 package co.edu.poli.TiendaJJM.modelo;
 
 public class FachadaCliente {
-    private Cliente cliente;
+    private InformacionPersonal informacionPersonal;
+    private HistorialPedidos historialPedidos;
+    private FormaPago formaPago;
 
-    public FachadaCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public FachadaCliente(String id, String nombre) {
+        this.informacionPersonal = new InformacionPersonal(id, nombre);
+        this.historialPedidos = new HistorialPedidos();
+        this.formaPago = new FormaPago();
     }
 
     public String mostrarInformacionPersonal() {
-        return "ID: " + cliente.getId() + "\nNombre: " + cliente.getNombre();
+        return informacionPersonal.mostrarInformacion();
+    }
+
+    public void actualizarNombre(String nuevoNombre) {
+        informacionPersonal.actualizarNombre(nuevoNombre);
     }
 
     public String mostrarHistorialPedidos() {
-        return cliente.getHistorialPedidos();
+        return historialPedidos.mostrarHistorial();
     }
 
     public void realizarPedido(String pedido) {
-        cliente.realizarPedido(pedido);
+        historialPedidos.realizarPedido(pedido);
     }
 
     public String mostrarEstadoFormaPago() {
-        return cliente.isFormaPagoActiva() ? "Forma de pago activa" : "Forma de pago bloqueada";
+        return formaPago.mostrarEstado();
     }
 
     public void activarFormaPago() {
-        cliente.activarFormaPago();
+        formaPago.activar();
     }
 
     public void bloquearFormaPago() {
-        cliente.bloquearFormaPago();
+        formaPago.bloquear();
     }
 }

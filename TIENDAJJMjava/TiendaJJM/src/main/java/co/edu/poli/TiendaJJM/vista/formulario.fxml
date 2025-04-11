@@ -5,8 +5,37 @@
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.poli.TiendaJJM.controlador.ControladorFormulario">
     <children>
-        <Button layoutX="50" layoutY="50" text="Mostrar Cliente" onAction="#mostrarCliente"/>
-        <Button layoutX="50" layoutY="100" text="Mostrar Producto" onAction="#mostrarProducto"/>
-        <Button layoutX="50" layoutY="150" text="Mostrar Proveedor" onAction="#mostrarProveedor"/>
+        <!-- Botones principales -->
+        <Button layoutX="50" layoutY="50" text="Patrón Fachada" onAction="#mostrarFachada"/>
+        <Button layoutX="50" layoutY="100" text="Patrón Proxy" onAction="#mostrarProxy"/>
+        <Button layoutX="50" layoutY="150" text="Patrón Flyweight" onAction="#mostrarFlyweight"/>
+
+        <!-- Botones para el patrón Fachada -->
+        <AnchorPane fx:id="fachadaPane" layoutX="50" layoutY="200" visible="false">
+            <children>
+                <Button layoutX="0" layoutY="0" text="Mostrar Cliente" onAction="#mostrarCliente"/>
+                <Button layoutX="0" layoutY="50" text="Actualizar Nombre Cliente" onAction="#actualizarNombreCliente"/>
+                <Button layoutX="0" layoutY="100" text="Mostrar Historial Pedidos" onAction="#mostrarHistorialPedidos"/>
+                <Button layoutX="0" layoutY="150" text="Realizar Pedido" onAction="#realizarPedido"/>
+                <Button layoutX="0" layoutY="200" text="Mostrar Estado Forma Pago" onAction="#mostrarEstadoFormaPago"/>
+                <Button layoutX="0" layoutY="250" text="Bloquear Forma Pago" onAction="#bloquearFormaPago"/>
+                <Button layoutX="0" layoutY="300" text="Activar Forma Pago" onAction="#activarFormaPago"/>
+            </children>
+        </AnchorPane>
+
+        <!-- Botones para el patrón Proxy -->
+        <AnchorPane fx:id="proxyPane" layoutX="250" layoutY="200" visible="false">
+            <children>
+                <Button layoutX="0" layoutY="0" text="Mostrar Producto (Proxy)" onAction="#mostrarProducto"/>
+            </children>
+        </AnchorPane>
+
+        <!-- Botones para el patrón Flyweight -->
+        <AnchorPane fx:id="flyweightPane" layoutX="450" layoutY="200" visible="false">
+            <children>
+                <Button layoutX="0" layoutY="0" text="Producto con Proveedor 1" onAction="#mostrarProductoConProveedor1"/>
+                <Button layoutX="0" layoutY="50" text="Producto con Proveedor 2" onAction="#mostrarProductoConProveedor2"/>
+            </children>
+        </AnchorPane>
     </children>
 </AnchorPane>

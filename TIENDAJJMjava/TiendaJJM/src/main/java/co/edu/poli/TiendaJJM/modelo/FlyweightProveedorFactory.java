@@ -4,12 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FlyweightProveedorFactory {
-    private static Map<String, Proveedor> proveedores = new HashMap<>();
+    private static Map<String, Proveedor> cache = new HashMap<>();
 
     public static Proveedor getProveedor(String nombre) {
-        if (!proveedores.containsKey(nombre)) {
-            proveedores.put(nombre, new Proveedor(nombre));
+        if (!cache.containsKey(nombre)) {
+            cache.put(nombre, new Proveedor(nombre));
         }
-        return proveedores.get(nombre);
+        return cache.get(nombre);
     }
 }

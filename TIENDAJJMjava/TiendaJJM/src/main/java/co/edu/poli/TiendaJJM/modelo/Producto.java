@@ -1,6 +1,6 @@
 package co.edu.poli.TiendaJJM.modelo;
 
-public class Producto {
+public class Producto implements ProductoInterface {
     private String nombre;
     private String detalles;
 
@@ -9,11 +9,8 @@ public class Producto {
         this.detalles = detalles;
     }
 
-    public String getDetalles() {
-        return detalles;
-    }
-
-    public String getNombre() {
-        return nombre;
+    @Override
+    public String obtenerDetalles() {
+        return "Producto: " + nombre + "\nDetalles: " + detalles;
     }
 }
