@@ -38,7 +38,7 @@ public class ControladorFormulario {
     void mostrarCliente(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Cliente");
-        alert.setHeaderText("Información del Cliente");
+        alert.setHeaderText("Información del Clientes");
         alert.setContentText(fachadaCliente.mostrarInformacionPersonal());
         alert.showAndWait();
     }
