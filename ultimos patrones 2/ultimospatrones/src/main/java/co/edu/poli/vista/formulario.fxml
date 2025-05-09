@@ -17,6 +17,7 @@
             <TextField fx:id="campoNombreProducto" promptText="Nombre del Producto"/>
             <TextField fx:id="campoPrecioProducto" promptText="Precio del Producto"/>
             <TextField fx:id="campoCantidad" promptText="Cantidad"/>
+            <TextField fx:id="campoDescuento" promptText="Porcentaje de Descuento"/>
             <Button text="Enviar Pedido" onAction="#enviarPedido"/>
         </VBox>
     </center>

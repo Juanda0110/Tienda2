@@ -1,20 +1,18 @@
 package co.edu.poli.modelo.command;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class PedidoInvoker {
-    private List<Command> commandList = new ArrayList<>();
+    private Command command;
 
-    public void addCommand(Command command) {
-        commandList.add(command);
+    public void setCommand(Command command) {
+        this.command = command;
     }
 
-    public void run() {
-        for (Command command : commandList) {
+    public void execute() {
+        if (command != null) {
             command.execute();
+        } else {
+            throw new IllegalStateException("No se ha configurado un comando.");
         }
-        commandList.clear();
     }
 }
 

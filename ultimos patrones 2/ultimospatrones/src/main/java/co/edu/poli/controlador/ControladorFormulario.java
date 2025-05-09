@@ -22,6 +22,7 @@ public class ControladorFormulario {
     @FXML private TextField campoNombreProducto;
     @FXML private TextField campoPrecioProducto;
     @FXML private TextField campoCantidad;
+    @FXML private TextField campoDescuento; // Campo adicional para el descuento
 
     public void enviarPedido() {
         try {
@@ -44,30 +45,23 @@ public class ControladorFormulario {
 
             // 1. Validación con Chain of Responsibility
             Handler handler = new ClienteHandler();
-            handler.setNext(new ProductoHandler())
-                   .setNext(new CantidadHandler());
+            handler.setNext(new ProductoHandler()).setNext(new CantidadHandler());
+            handler.handle(pedido);
 
-            String resultadoValidacion = handler.handle(pedido);
-            if (resultadoValidacion != null) {
-                System.out.println("Validación fallida: " + resultadoValidacion);
-                return;
-            }
+            // 2. Configurar el descuento dinámico
+            DiscountContext discountContext = new DiscountContext();
+            double porcentajeDescuento = Double.parseDouble(campoDescuento.getText()); // Campo adicional en el formulario
+            discountContext.setStrategy(new PercentageDiscount(porcentajeDescuento));
 
-            // 2. Aplicar descuento con Strategy
-            DiscountContext contextoDescuento = new DiscountContext();
-            contextoDescuento.setStrategy(new PercentageDiscount());  // Puedes cambiar por FixedDiscount
-            double totalConDescuento = contextoDescuento.executeStrategy(pedido.calcularTotal());
-
-            // 3. Ejecutar el pedido con Command
-            Command agregarPedido = new AgregarPedidoCommand(pedido);
+            // 3. Comando para agregar el pedido
+            Command agregarPedido = new AgregarPedidoCommand(pedido, discountContext);
             PedidoInvoker invoker = new PedidoInvoker();
-            invoker.addCommand(agregarPedido);
-            invoker.run();
+            invoker.setCommand(agregarPedido);
+            invoker.execute();
 
-            System.out.println("Total con descuento: $" + totalConDescuento);
-
+            System.out.println("Pedido enviado con éxito.");
         } catch (Exception e) {
-            System.out.println("Error en el pedido: " + e.getMessage());
+            System.err.println("Error al enviar el pedido: " + e.getMessage());
         }
     }
 }

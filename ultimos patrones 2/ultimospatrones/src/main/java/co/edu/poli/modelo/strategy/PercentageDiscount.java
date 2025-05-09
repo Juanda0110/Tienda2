@@ -1,8 +1,14 @@
 package co.edu.poli.modelo.strategy;
 
 public class PercentageDiscount implements DiscountStrategy {
+    private double percentage;
+
+    public PercentageDiscount(double percentage) {
+        this.percentage = percentage;
+    }
+
     @Override
     public double applyDiscount(double total) {
-        return total * 0.90; // 10% de descuento
+        return total - (total * (percentage / 100));
     }
 }
