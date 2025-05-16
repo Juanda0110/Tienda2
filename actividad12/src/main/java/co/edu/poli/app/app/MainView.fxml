@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10.0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="app.MainController"
+      padding="10">
+    <Button text="Ejecutar Visitor (IVA y Detalles)" fx:id="btnVisitor" />
+    <Button text="Ejecutar State (Cambiar Estado Pedido)" fx:id="btnState" />
+    <Button text="Ejecutar Mediator (Notificar)" fx:id="btnMediator" />
+    <TextArea fx:id="logArea" prefHeight="300" />
+</VBox>
