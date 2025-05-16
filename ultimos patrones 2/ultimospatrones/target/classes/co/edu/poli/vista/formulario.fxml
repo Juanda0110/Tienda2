@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="co.edu.poli.controlador.ControladorFormulario">
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+            </padding>
+            <TextField fx:id="campoNombreCliente" promptText="Nombre del Cliente"/>
+            <TextField fx:id="campoCorreoCliente" promptText="Correo del Cliente"/>
+            <TextField fx:id="campoNombreProducto" promptText="Nombre del Producto"/>
+            <TextField fx:id="campoPrecioProducto" promptText="Precio del Producto"/>
+            <TextField fx:id="campoCantidad" promptText="Cantidad"/>
+            <TextField fx:id="campoDescuento" promptText="Porcentaje de Descuento"/>
+            <Button text="Enviar Pedido" onAction="#enviarPedido"/>
+        </VBox>
+    </center>
+</BorderPane>
