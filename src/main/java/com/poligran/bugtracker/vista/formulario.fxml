@@ -4,7 +4,8 @@
 <?import javafx.scene.layout.*?>
 
 <BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.poligran.bugtracker.vista.ControladorFormulario">
+            fx:controller="com.poligran.bugtracker.vista.ControladorFormulario"
+            stylesheets="@../../../../../../resources/css/estilos.css">
 
     <top>
         <Label text="BugTracker-QA" style="-fx-font-size: 20px; -fx-padding: 10;" />
@@ -17,8 +18,12 @@
             <TextField fx:id="txtDescripcion" promptText="Descripción" />
             <TextField fx:id="txtPrioridad" promptText="Prioridad" />
             <TextField fx:id="txtEstado" promptText="Estado" />
+            <TextField fx:id="txtBuscar" promptText="Buscar por título o estado"/>
             <Button text="Agregar Bug" onAction="#agregarBug" />
+            <Button text="Actualizar Estado" onAction="#actualizarEstadoBug" />
             <ListView fx:id="listaBugs" prefHeight="200" />
+            <Button text="Eliminar Bug" onAction="#eliminarBug" />
+            <TextArea fx:id="txtDetalles" editable="false" prefHeight="80"/>
         </VBox>
     </center>
 </BorderPane>

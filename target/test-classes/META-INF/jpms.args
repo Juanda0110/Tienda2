@@ -1,4 +1,0 @@
---patch-module
-com.poligran.bugtracker=_
---add-reads
-com.poligran.bugtracker=ALL-UNNAMED

@@ -1,7 +1,0 @@
-com\poligran\bugtracker\servicio\BugService.class
-module-info.class
-com\poligran\bugtracker\controlador\BugController.class
-com\poligran\bugtracker\vista\ControladorFormulario.class
-com\poligran\bugtracker\modelo\Bug.class
-com\poligran\bugtracker\vista\App.class
-com\poligran\bugtracker\repositorio\BugRepository.class
